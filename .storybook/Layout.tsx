@@ -1,12 +1,9 @@
-import React from 'react';
-import '../src/scss/tailwind.scss';
+import React from "react";
+import "../src/scss/tailwind.scss";
+import "../public/fonts/style.css";
 
 const Layout = ({ children }) => {
-  return (
-    <div className="px-20 py-10">
-      {children}
-    </div>
-  )
-}
+  return <div className="px-10 py-10">{children}</div>;
+};
 
 export default Layout;

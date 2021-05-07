@@ -23,6 +23,14 @@ module.exports = {
         ],
       },
       {
+        test: /\.(png|woff|woff2|eot|ttf|svg|otf)$/,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
+      {
         test: /\,scss&/,
         use: [
           {

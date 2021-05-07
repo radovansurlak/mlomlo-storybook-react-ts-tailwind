@@ -1,5 +1,7 @@
 import React from "react";
+import { ButtonPrimary } from "../components/ButtonPrimary";
 import { Button } from "../components/Button";
+import { ButtonSecondary } from "../components/ButtonSecondary";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
@@ -8,10 +10,14 @@ export default {
   decorators: [withKnobs],
 };
 
-export const primary = () => {
-  const label = text("Label", "See now");
-  const outlined = boolean("Oultined", false);
-  return (
-    <Button onClick={action("clicked")} outlined={outlined} label={label} />
-  );
+export const Gradient = () => {
+  return <Button text={"Odeslat dotaz"} />;
+};
+
+export const Primary = () => {
+  return <ButtonPrimary className="mt-10">Odeslat dotaz</ButtonPrimary>;
+};
+
+export const Secondary = () => {
+  return <ButtonSecondary>Pridejte dotaz</ButtonSecondary>;
 };

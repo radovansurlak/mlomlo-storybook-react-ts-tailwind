@@ -1,0 +1,14 @@
+.button {
+    @apply flex items-center;
+    height: 55px;
+}
+
+.label {
+    @apply bg-mlomlo-green h-full flex items-center uppercase font-bold text-white rounded-l-10px;
+    padding-left: 30px;
+    padding-right: 27px;
+}
+
+.svg {
+    @apply h-full flex-shrink-0;
+}

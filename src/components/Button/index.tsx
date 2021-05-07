@@ -1,41 +1,16 @@
-import React, { FC } from "react";
+import React, { FunctionComponent } from 'react';
 
-import style from "./Button.module.scss";
+import style from './Button.module.scss';
 
-console.log(style);
-
-type ButtonTypes = {
-  /**
-   * Label of the button
-   */
-  label: string;
-  /**
-   * Boolean value to define the button style
-   */
-  outlined?: boolean;
-  /**
-   * Button click action
-   */
-  onClick(): void;
-};
-
-const BASE_BUTTON =
-  "rounded outline-none shadow py-3 px-12 font-normal uppercase tracking-wider text-lg";
-const CONTAINED_BUTTON = `${BASE_BUTTON} bg-teal-400 border border-teal-400 text-white`;
-const OUTLINED_BUTTON = `${BASE_BUTTON} border border-teal-400 text-teal-400`;
-
-export const Button: FC<ButtonTypes> = ({
-  onClick,
-  label = "Some label",
-  outlined,
-}) => {
+export const Button: FunctionComponent<any> = ({ text }) => {
   return (
     <button
-      onClick={onClick}
-      // className={outlined ? OUTLINED_BUTTON : CONTAINED_BUTTON}
-      className={style.default}
-    >
-      <span>{label}</span>
+      style={{
+        backgroundImage:
+          'linear-gradient(270deg, rgba(255,184,82,1) 0%, rgba(255,157,65,1) 50%, rgba(255,132,49,1) 100%)',
+      }}
+      className={style.default}>
+      {text}
     </button>
   );
 };

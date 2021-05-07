@@ -1,0 +1,14 @@
+.button {
+    @apply flex items-center;
+    height: 45px;
+}
+
+.label {
+    @apply h-full flex items-center font-bold text-white rounded-l-10px;
+    padding-left: 10px;
+    background: linear-gradient(90deg, rgba(255, 132, 49, 1) 0%, rgba(255, 157, 65, 1) 50%, #ffae4b 100%);
+}
+
+.svg {
+    @apply h-full flex-shrink-0;
+}
