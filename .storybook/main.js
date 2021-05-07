@@ -1,12 +1,14 @@
+const path = require("path");
+
 module.exports = {
-  stories: ['../src/stories/**/*.stories.tsx'],
+  stories: ["../src/stories/**/*.stories.tsx"],
   addons: [
-    '@storybook/addon-actions/register',
-    '@storybook/addon-knobs/register',
-    '@storybook/addon-notes/register',
+    "@storybook/addon-actions/register",
+    "@storybook/addon-knobs/register",
+    "@storybook/addon-notes/register",
   ],
-  webpackFinal: async config => {
-    config.module.rules = [
+  webpackFinal: async (config) => {
+    (config.module.rules = [
       ...config.module.rules,
       {
         test: /\.(ts|tsx)$/,
@@ -14,14 +16,27 @@ module.exports = {
           {
             loader: require.resolve("babel-loader"),
             options: {
-              presets: [require.resolve("babel-preset-react-app")]
-            }
+              presets: [require.resolve("babel-preset-react-app")],
+            },
           },
-          require.resolve("react-docgen-typescript-loader")
-        ]
-      }
-    ],
-    config.resolve.extensions.push('.ts', '.tsx');
+          require.resolve("react-docgen-typescript-loader"),
+        ],
+      },
+      {
+        test: /\,scss&/,
+        use: [
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              plugins: [require("tailwindcss"), require("autoprefixer")],
+            },
+          },
+        ],
+        include: path.resolve(__dirname, "../"),
+      },
+    ]),
+      config.resolve.extensions.push(".ts", ".tsx");
     return config;
   },
 };
